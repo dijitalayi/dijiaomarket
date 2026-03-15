@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+:root {
+  --bg-stone: #121212;
+  --bg-panel: #1e1e1e;
+  --accent-gold: #c8a147;
+  --accent-parchment: #e0c9a6;
+  --text-primary: #f2e6d9;
+  --text-secondary: #a09080;
+  --profit-green: #4caf50;
+  --loss-red: #f44336;
+  --border-gold: #3d3428;
+  --shadow-color: rgba(0, 0, 0, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--bg-stone);
+  color: var(--text-primary);
+  font-family: 'Ubuntu';
+  min-height: 100vh;
+  background-image: radial-gradient(circle at center, #242424 0%, #121212 100%);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Ubuntu';
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.albion-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  padding: 20px;
+  position: relative;
+  overflow-x: auto;
+}
+
+.albion-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+}
+
+.albion-button {
+  background: linear-gradient(180deg, #4a3c2b 0%, #2a1f14 100%);
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-parchment);
+  padding: 10px 20px;
+  font-family: 'Ubuntu';
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.albion-button:hover {
+  background: linear-gradient(180deg, #5a4c3b 0%, #3a2f24 100%);
+}
+
+.albion-button.active {
+  background: var(--accent-gold);
+  color: var(--bg-stone);
+}
+
+.profit-text {
+  color: var(--profit-green);
+  font-weight: 600;
+}
+
+.loss-text {
+  color: var(--loss-red);
+  font-weight: 600;
+}
+
+/* Custom Table Styles */
+.albion-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.albion-table th {
+  font-family: 'Ubuntu';
+  color: var(--accent-parchment);
+  text-align: left;
+  padding: 12px 10px;
+  border-bottom: 2px solid var(--border-gold);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.albion-table td {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.albion-table tr:hover td {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.item-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Progress Bar for Profit */
+.profit-bar-container {
+  width: 100%;
+  height: 8px;
+  background: #333;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.profit-bar {
+  height: 100%;
+  background: var(--profit-green);
+  border-radius: 4px;
+}
+
+.live-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--profit-green);
+  border-radius: 50%;
+  margin-right: 8px;
+  box-shadow: 0 0 8px var(--profit-green);
+  animation: pulse 2s infinite;
+}
+
+.live-indicator.scanning {
+  background: #ff4500;
+  box-shadow: 0 0 10px #ff4500;
+  animation: pulse-fast 0.6s infinite;
+}
+
+/* Custom Select Styling */
+.albion-select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.albion-select-wrapper::after {
+  content: 'expand_more';
+  font-family: 'Material Icons';
+  position: absolute;
+  right: 12px;
+  color: var(--accent-gold);
+  pointer-events: none;
+  font-size: 20px;
+}
+
+.albion-select {
+  appearance: none;
+  width: 100%;
+  padding-right: 40px !important;
+  /* Space for the arrow */
+  text-align: left;
+}
+
+.albion-select option {
+  background-color: var(--bg-panel);
+  color: var(--text-primary);
+}
+
+/* Safety Score Styles */
+.safety-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-left: 5px;
+  flex-shrink: 0;
+}
+
+/* Add Cart Button */
+.add-cart-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--accent-gold);
+  border-radius: 4px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-cart-btn:hover {
+  background: var(--accent-gold);
+  color: #000;
+  transform: scale(1.1);
+}
+
+/* Smart Cart Styling */
+.smart-cart-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
+  max-height: 80vh;
+  background: var(--bg-card, #1e1e1e);
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  opacity: 1;
+  /* Buradan opaklığı (0 ile 1 arası) değiştirebilirsiniz */
+}
+
+.smart-cart-header {
+  padding: 15px;
+  background: rgba(212, 175, 55, 0.1);
+  border-bottom: 1px solid var(--border-gold);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.smart-cart-body {
+  padding: 10px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.cart-item {
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  align-items: center;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.smart-cart-footer {
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.remove-item-btn {
+  background: transparent;
+  border: none;
+  color: #ff4d4d;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.remove-item-btn:hover {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes pulse-fast {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
